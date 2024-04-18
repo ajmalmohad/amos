@@ -4,14 +4,12 @@
   inputs,
   ...
 }: let
-  startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-    ${pkgs.waybar}/bin/waybar &
-    ${pkgs.swww}/bin/swww init &
-
-    sleep 1
-
-    ${pkgs.swww}/bin/swww img ${./wallpaper.jpg} &
-  '';
+  # startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
+  #   ${pkgs.waybar}/bin/waybar &
+  #   ${pkgs.swww}/bin/swww init &
+  #   sleep 1
+  #   ${pkgs.swww}/bin/swww img ${./wallpaper.jpg} &
+  # '';
   workspaces = builtins.concatLists (builtins.genList (
       x: let
         ws = let
@@ -64,6 +62,16 @@ in {
   };
 
   home.file = {
+  };
+
+  programs = {
+    wofi.enable = true;
+    wpaperd.enable = true;
+    wpaperd.settings = {
+      eDP-1 = {
+        path = "/home/ajmalmohad/personal/amos/wallpaper.jpg";
+      };
+    };
   };
 
   programs.home-manager.enable = true;
