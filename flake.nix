@@ -27,5 +27,10 @@
         modules = [./nixos/configuration.nix];
       };
     };
+
+    homeConfigurations."ajmalmohad" = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [./home.nix];
+    };
   };
 }
