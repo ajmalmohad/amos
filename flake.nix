@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {
@@ -21,6 +22,7 @@
     nixosConfigurations = {
       amos-desktop = nixpkgs.lib.nixosSystem {
         inherit system;
+        inherit inputs;
         modules = [./nixos/configuration.nix];
       };
     };
