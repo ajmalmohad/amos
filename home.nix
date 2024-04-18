@@ -20,7 +20,7 @@ in {
     "$mod" = "ALT";
     bind =
       [
-        "$mod, F, exec, firefox"
+        "$mod, F, exec, vivaldi"
         ", Print, exec, grimblast copy area"
       ]
       ++ (
