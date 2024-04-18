@@ -4,12 +4,12 @@
   inputs,
   ...
 }: let
-  # startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-  #   ${pkgs.waybar}/bin/waybar &
-  #   ${pkgs.swww}/bin/swww init &
-  #   sleep 1
-  #   ${pkgs.swww}/bin/swww img ${./wallpaper.jpg} &
-  # '';
+  startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
+    ${pkgs.waybar}/bin/waybar &
+    ${pkgs.swww}/bin/swww init &
+    sleep 1
+    ${pkgs.swww}/bin/swww img ${./wallpaper.jpg} &
+  '';
   workspaces = builtins.concatLists (builtins.genList (
       x: let
         ws = let
@@ -41,16 +41,11 @@ in {
         "$mod SHIFT, E, exec, pkill Hyprland"
         "$mod, Q, killactive,"
         "$mod, F, fullscreen,"
-        "$mod, G, togglegroup,"
-        "$mod SHIFT, N, changegroupactive, f"
-        "$mod SHIFT, P, changegroupactive, b"
-        "$mod, R, togglesplit,"
-        "$mod, T, togglefloating,"
-        "$mod, P, pseudo,"
         "$mod ALT, ,resizeactive,"
 
-        # terminal
+        # terminal and wofi
         "$mod, Return, exec, alacritty"
+        "$mod, T, exec, wofi --show drun"
 
         # move focus
         "$mod, left, movefocus, l"
@@ -61,17 +56,15 @@ in {
       ++ workspaces;
   };
 
+  home.packages = [
+    startupScript
+  ];
+
   home.file = {
   };
 
   programs = {
     wofi.enable = true;
-    wpaperd.enable = true;
-    wpaperd.settings = {
-      eDP-1 = {
-        path = "/home/ajmalmohad/personal/amos/wallpaper.jpg";
-      };
-    };
   };
 
   programs.home-manager.enable = true;
