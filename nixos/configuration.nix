@@ -58,12 +58,14 @@
     pulse.enable = true;
   };
 
+  virtualisation.docker.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   users.users.ajmalmohad = {
     isNormalUser = true;
     description = "Ajmal Mohad";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       supabase-cli
       nodePackages.eas-cli
