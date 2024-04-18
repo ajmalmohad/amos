@@ -72,8 +72,6 @@
     extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       nodePackages.eas-cli
-      nodePackages_latest.vercel
-      nodePackages_latest.prisma
     ];
   };
 
@@ -96,14 +94,7 @@
     typescript
     nodePackages.ts-node
     nodePackages_latest.pnpm
-    sqlite
   ];
-
-  environment.variables = {
-    PRISMA_QUERY_ENGINE_LIBRARY = "${pkgs.prisma-engines}/lib/libquery_engine.node";
-    PRISMA_QUERY_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/query-engine";
-    PRISMA_SCHEMA_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/schema-engine";
-  };
 
   system.stateVersion = "23.11";
 
