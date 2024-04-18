@@ -65,8 +65,9 @@
     description = "Ajmal Mohad";
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-      nodePackages."supabase"
-      nodePackages."eas-cli"
+      supabase-cli
+      nodePackages.eas-cli
+      nodePackages.pnpm
     ];
   };
 
