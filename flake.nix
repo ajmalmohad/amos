@@ -7,19 +7,22 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager }:
-  let
-  	system = "x86_64-linux";
-	pkgs = import nixpkgs {
-		inherit system;
-		config.allowUnfree = true;
-	};
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+  }: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
   in {
-  	nixosConfigurations = {
-		amos-desktop = nixpkgs.lib.nixosSystem {
-			inherit system;
-			modules = [./nixos/configuration.nix];
-		};
-    	};
+    nixosConfigurations = {
+      amos-desktop = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [./nixos/configuration.nix];
+      };
+    };
   };
 }

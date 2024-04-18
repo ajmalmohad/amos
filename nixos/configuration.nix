@@ -1,20 +1,22 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [./hardware-configuration.nix];
-	
+
   nix = {
-	settings.auto-optimise-store = true;
-	gc.automatic = true;
-	gc.dates = "weekly";
-	gc.options = "--delete-older-than 7d";
+    settings.auto-optimise-store = true;
+    gc.automatic = true;
+    gc.dates = "weekly";
+    gc.options = "--delete-older-than 7d";
   };
 
   boot.loader.grub = {
-	enable = true;
-	device = "/dev/sda";
-	useOSProber = true;
-	configurationLimit = 5;
+    enable = true;
+    device = "/dev/sda";
+    useOSProber = true;
+    configurationLimit = 5;
   };
 
   networking.hostName = "ajmalmohad";
@@ -39,13 +41,13 @@
 
   # Enable the X11 windowing system.
   services.xserver = {
-  	enable = true;
-	layout = "us";
-	xkbVariant = "";
-	
-	# Gnome
-	displayManager.gdm.enable = true;
-	desktopManager.gnome.enable = true;
+    enable = true;
+    layout = "us";
+    xkbVariant = "";
+
+    # Gnome
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
   };
 
   # Enable CUPS to print documents.
@@ -67,32 +69,32 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-	
+
   nixpkgs.config.allowUnfree = true;
 
   users.users.ajmalmohad = {
     isNormalUser = true;
     description = "Ajmal Mohad";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
     ];
   };
 
   environment.systemPackages = with pkgs; [
-	wget
-	gparted
-	ntfs3g
-	neofetch
-	alejandra
+    wget
+    gparted
+    ntfs3g
+    neofetch
+    alejandra
 
-	git
-	tmux
-	zsh
-	fzf
-	neovim
-	vscode
-	vivaldi
-	nodejs
+    git
+    tmux
+    zsh
+    fzf
+    neovim
+    vscode
+    vivaldi
+    nodejs
   ];
 
   # programs.mtr.enable = true;
@@ -112,9 +114,9 @@
 
   system.stateVersion = "23.11";
 
-  # nix flakes experimental
+  # nix flakes
   nix = {
-  	package = pkgs.nixFlakes;
-	extraOptions = "experimental-features = nix-command flakes";
+    package = pkgs.nixFlakes;
+    extraOptions = "experimental-features = nix-command flakes";
   };
 }
