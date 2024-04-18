@@ -72,6 +72,7 @@
     extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       nodePackages.eas-cli
+      ngrok
     ];
   };
 
