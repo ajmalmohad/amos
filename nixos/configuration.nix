@@ -73,7 +73,6 @@
     packages = with pkgs; [
       supabase-cli
       nodePackages.eas-cli
-      nodePackages.pnpm
     ];
   };
 
@@ -92,6 +91,9 @@
     vscode
     vivaldi
     nodejs
+    typescript
+    nodePackages.ts-node
+    nodePackages.pnpm
   ];
 
   system.stateVersion = "23.11";
