@@ -91,6 +91,7 @@
 	neovim
 	vscode
 	vivaldi
+	nodejs
   ];
 
   # programs.mtr.enable = true;
