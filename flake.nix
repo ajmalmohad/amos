@@ -24,13 +24,17 @@
       amos-desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         inherit system;
-        modules = [./nixos/configuration.nix];
+        modules = [
+          ./nixos/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.ajmalmohad = import ./home.nix;
+            home-manager.extraSpecialArgs = {inherit inputs;};
+          }
+        ];
       };
-    };
-
-    homeConfigurations."ajmalmohad" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = [./home.nix];
     };
   };
 }
