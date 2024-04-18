@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [./hardware-configuration.nix];
@@ -99,7 +100,7 @@
   programs = {
     hyprland = {
       enable = true;
-      # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+      package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     };
   };
 

@@ -13,7 +13,7 @@
     nixpkgs,
     home-manager,
     hyprland,
-  }: let
+  } @ inputs: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
@@ -22,6 +22,7 @@
   in {
     nixosConfigurations = {
       amos-desktop = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
         inherit system;
         modules = [./nixos/configuration.nix];
       };
