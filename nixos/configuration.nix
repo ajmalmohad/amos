@@ -89,7 +89,7 @@
     neovim
     vscode
     vivaldi
-    nodejs
+    nodejs_20
     typescript
     nodePackages.ts-node
     nodePackages.pnpm
