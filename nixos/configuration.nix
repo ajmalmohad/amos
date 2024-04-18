@@ -71,7 +71,6 @@
     description = "Ajmal Mohad";
     extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [
-      supabase-cli
       nodePackages.eas-cli
     ];
   };
