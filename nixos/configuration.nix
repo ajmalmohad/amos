@@ -83,6 +83,7 @@
 	gparted
 	ntfs3g
 	neofetch
+	alejandra
 
 	git
 	tmux
