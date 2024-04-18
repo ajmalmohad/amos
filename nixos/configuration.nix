@@ -96,6 +96,7 @@
     typescript
     nodePackages.ts-node
     nodePackages_latest.pnpm
+    sqlite
   ];
 
   environment.variables = {
