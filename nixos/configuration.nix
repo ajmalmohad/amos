@@ -73,6 +73,7 @@
     packages = with pkgs; [
       nodePackages.eas-cli
       ngrok
+      openssl
     ];
   };
 
