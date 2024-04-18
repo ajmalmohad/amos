@@ -39,21 +39,18 @@
     LC_TIME = "en_IN";
   };
 
-  # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
     layout = "us";
     xkbVariant = "";
 
-    # Gnome
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
 
-  # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.openssh.enable = true;
 
-  # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -62,9 +59,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    #jack.enable = true;
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -102,9 +96,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
