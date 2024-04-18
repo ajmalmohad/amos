@@ -72,8 +72,8 @@
     extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       nodePackages.eas-cli
-      ngrok
-      openssl
+      nodePackages_latest.vercel
+      nodePackages_latest.prisma
     ];
   };
 
@@ -83,6 +83,7 @@
     ntfs3g
     neofetch
     alejandra
+    openssl
 
     git
     tmux
@@ -91,11 +92,17 @@
     neovim
     vscode
     vivaldi
-    nodejs_20
+    nodejs_21
     typescript
     nodePackages.ts-node
-    nodePackages.pnpm
+    nodePackages_latest.pnpm
   ];
+
+  environment.variables = {
+    PRISMA_QUERY_ENGINE_LIBRARY = "${pkgs.prisma-engines}/lib/libquery_engine.node";
+    PRISMA_QUERY_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/query-engine";
+    PRISMA_SCHEMA_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/schema-engine";
+  };
 
   system.stateVersion = "23.11";
 
