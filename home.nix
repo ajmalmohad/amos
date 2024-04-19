@@ -52,9 +52,6 @@ in {
        disable_hyprland_logo = true
        disable_splash_rendering = true
      }
-
-    exec-once = swww query || swww init
-    exec-once = swww img "/home/ajmalmohad/personal/amos/wallpaper.jpg" &
   '';
 
   home.packages = with pkgs; [
