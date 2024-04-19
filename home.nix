@@ -66,6 +66,7 @@ in {
 
   programs = {
     wofi.enable = true;
+    waybar.enable = true;
     zsh = {
       enable = true;
       enableCompletion = true;
