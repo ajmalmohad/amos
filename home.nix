@@ -33,7 +33,6 @@ in {
     bindm = [
       "$mod, mouse:272, movewindow"
       "$mod, mouse:273, resizewindow"
-      "$mod ALT, mouse:272, resizewindow"
     ];
 
     bind =
@@ -43,11 +42,9 @@ in {
         "$mod, F, fullscreen,"
         "$mod ALT, ,resizeactive,"
 
-        # terminal and wofi
         "$mod, Return, exec, alacritty"
         "$mod, T, exec, wofi --show drun"
 
-        # move focus
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
@@ -56,8 +53,9 @@ in {
       ++ workspaces;
   };
 
-  home.packages = [
-    startupScript
+  home.packages = with pkgs; [
+    nodePackages.eas-cli
+    alacritty
   ];
 
   home.file = {
@@ -65,6 +63,10 @@ in {
 
   programs = {
     wofi.enable = true;
+    zsh.enable = true;
+    zsh.loginShellInit = ''
+      ${startupScript}
+    '';
   };
 
   programs.home-manager.enable = true;

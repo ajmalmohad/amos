@@ -71,10 +71,7 @@
     isNormalUser = true;
     description = "Ajmal Mohad";
     extraGroups = ["networkmanager" "wheel" "docker"];
-    packages = with pkgs; [
-      nodePackages.eas-cli
-      alacritty
-    ];
+    shell = pkgs.zsh;
   };
 
   environment.systemPackages = with pkgs; [
