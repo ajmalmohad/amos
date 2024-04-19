@@ -99,14 +99,9 @@
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+      enableNvidiaPatches = true;
     };
-    zsh = {
-      enable = true;
-      ohMyZsh.enable = true;
-      autosuggestions.enable = true;
-      ohMyZsh.plugins = ["git"];
-      syntaxHighlighting.enable = true;
-    };
+    zsh.enable = true;
   };
 
   nix = {
