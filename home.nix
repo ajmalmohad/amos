@@ -63,10 +63,6 @@ in {
 
   programs = {
     wofi.enable = true;
-    zsh.enable = true;
-    zsh.loginShellInit = ''
-      ${startupScript}
-    '';
   };
 
   programs.home-manager.enable = true;

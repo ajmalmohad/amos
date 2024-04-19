@@ -100,6 +100,13 @@
       enable = true;
       package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     };
+    zsh = {
+      enable = true;
+      ohMyZsh.enable = true;
+      autosuggestions.enable = true;
+      ohMyZsh.plugins = ["git"];
+      syntaxHighlighting.enable = true;
+    };
   };
 
   nix = {
