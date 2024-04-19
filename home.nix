@@ -37,7 +37,7 @@ in {
         "$mod ALT, ,resizeactive,"
 
         "$mod, Return, exec, alacritty"
-        "$mod, T, exec, wofi --show drun"
+        "$mod, D, exec, wofi --show drun"
 
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
