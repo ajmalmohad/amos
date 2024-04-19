@@ -89,7 +89,7 @@
     fzf
     neovim
     vscode
-    vivaldi
+    brave
     nodejs_21
     typescript
     nodePackages.ts-node
