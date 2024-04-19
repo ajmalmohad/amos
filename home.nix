@@ -48,15 +48,11 @@ in {
   };
 
   wayland.windowManager.hyprland.extraConfig = ''
-    monitor=,preferred,auto,2
+    monitor=,preferred,auto,1
 
     misc {
        disable_hyprland_logo = true
        disable_splash_rendering = true
-     }
-
-    decoration {
-      drop_shadow = false
     }
   '';
 
