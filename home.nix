@@ -4,12 +4,6 @@
   inputs,
   ...
 }: let
-  startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-    ${pkgs.waybar}/bin/waybar &
-    ${pkgs.swww}/bin/swww init &
-    sleep 1
-    ${pkgs.swww}/bin/swww img ${./wallpaper.jpg} &
-  '';
   workspaces = builtins.concatLists (builtins.genList (
       x: let
         ws = let
@@ -52,6 +46,16 @@ in {
       ]
       ++ workspaces;
   };
+
+  wayland.windowManager.hyprland.extraConfig = ''
+    misc {
+       disable_hyprland_logo = true
+       disable_splash_rendering = true
+     }
+
+    exec-once = swww query || swww init
+    exec-once = swww img "/home/ajmalmohad/personal/amos/wallpaper.jpg" &
+  '';
 
   home.packages = with pkgs; [
     nodePackages.eas-cli
