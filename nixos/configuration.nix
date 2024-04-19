@@ -22,6 +22,7 @@
 
   networking.hostName = "ajmalmohad";
   networking.networkmanager.enable = true;
+  networking.firewall.enable = false;
 
   time.timeZone = "Asia/Kolkata";
   i18n.defaultLocale = "en_IN";
