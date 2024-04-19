@@ -82,6 +82,7 @@
     neofetch
     alejandra
     openssl
+    gnome.gnome-tweaks
 
     git
     tmux
