@@ -11,6 +11,7 @@ floating_modifier $super
 #autostart
 exec --no-startup-id xsetroot -solid "#333333"
 exec --no-startup-id xsettingsd &
+exec --no-startup-id feh --bg-scale '/home/ajmalmohad/wallpaper.jpg'
 
 # start a terminal
 bindsym $alt+Return exec alacritty

@@ -6,21 +6,21 @@
 }: {
   home.username = "ajmalmohad";
   home.homeDirectory = "/home/ajmalmohad";
-
   home.packages = with pkgs; [
     nodePackages.eas-cli
-    alacritty
   ];
 
-  home.file.".config/i3/config" = {
-    source = ./dotfiles/i3/config;
-  };
-
-  home.file.".config/i3status/config" = {
-    source = ./dotfiles/i3status/config;
+  home.file = {
+    ".config/i3/config" = {
+      source = ./dotfiles/i3/config;
+    };
+    ".config/i3status/config" = {
+      source = ./dotfiles/i3status/config;
+    };
   };
 
   programs = {
+    home-manager.enable = true;
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -40,6 +40,5 @@
     };
   };
 
-  programs.home-manager.enable = true;
   home.stateVersion = "23.11";
 }

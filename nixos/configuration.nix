@@ -20,9 +20,11 @@
     configurationLimit = 5;
   };
 
-  networking.hostName = "ajmalmohad";
-  networking.networkmanager.enable = true;
-  networking.firewall.enable = false;
+  networking = {
+    hostName = "ajmalmohad";
+    networkmanager.enable = true;
+    firewall.enable = false;
+  };
 
   time.timeZone = "Asia/Kolkata";
   i18n.defaultLocale = "en_IN";
@@ -39,11 +41,16 @@
     LC_CTYPE = "en_US.utf8";
   };
 
+  servives = {
+    printing.enable = true;
+    openssh.enable = true;
+    gnome.gnome-keyring.enable = true;
+  };
+
   services.xserver = {
     enable = true;
     layout = "us";
     xkbVariant = "";
-
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
     windowManager.i3 = {
@@ -54,13 +61,8 @@
     };
   };
 
-  services.printing.enable = true;
-  services.openssh.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-
   sound.enable = true;
   hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -68,12 +70,16 @@
     pulse.enable = true;
   };
 
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
+  virtualisation.docker = {
     enable = true;
-    setSocketVariable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
 
+  security.rtkit.enable = true;
+  programs.zsh.enable = true;
   nixpkgs.config.allowUnfree = true;
 
   users.users.ajmalmohad = {
@@ -94,11 +100,13 @@
     picom
     dmenu
     rofi
+    feh
 
     git
     tmux
     zsh
     fzf
+    alacritty
     neovim
     vscode
     brave
@@ -107,10 +115,6 @@
     nodePackages.ts-node
     nodePackages_latest.pnpm
   ];
-
-  programs = {
-    zsh.enable = true;
-  };
 
   nix = {
     package = pkgs.nixFlakes;
