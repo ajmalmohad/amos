@@ -36,6 +36,7 @@
     LC_PAPER = "en_IN";
     LC_TELEPHONE = "en_IN";
     LC_TIME = "en_IN";
+    LC_CTYPE = "en_US.utf8";
   };
 
   services.xserver = {
@@ -43,17 +44,19 @@
     layout = "us";
     xkbVariant = "";
 
-    # Gnome
-    # displayManager.gdm.enable = true;
-    # desktopManager.gnome.enable = true;
-
-    # KDE
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        i3status
+      ];
+    };
   };
 
   services.printing.enable = true;
   services.openssh.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -87,7 +90,10 @@
     neofetch
     alejandra
     openssl
-    gnome.gnome-tweaks
+    gnome.gnome-keyring
+    picom
+    dmenu
+    rofi
 
     git
     tmux
@@ -104,6 +110,22 @@
 
   programs = {
     zsh.enable = true;
+  };
+
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = ["graphical-session.target"];
+      wants = ["graphical-session.target"];
+      after = ["graphical-session.target"];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
   };
 
   nix = {
