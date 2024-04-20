@@ -8,6 +8,7 @@
   home.homeDirectory = "/home/ajmalmohad";
   home.packages = with pkgs; [
     nodePackages.eas-cli
+    (import ./scripts/tmuxus.nix {inherit pkgs;})
   ];
 
   home.file = {
