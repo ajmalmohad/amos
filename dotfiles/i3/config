@@ -9,9 +9,8 @@ font pango: Noto Sans 8
 floating_modifier $super
 
 #autostart
-exec --no-startup-id hsetroot -center ~/.wallpaper.png
+exec --no-startup-id hsetroot -center ~/.wallpaper.jpg
 exec --no-startup-id xsettingsd &
-exec --no-startup-id compton -b
 
 # start a terminal
 bindsym $alt+Return exec alacritty
