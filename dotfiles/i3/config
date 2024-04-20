@@ -9,13 +9,13 @@ font pango: Noto Sans 8
 floating_modifier $super
 
 #autostart
-exec --no-startup-id hsetroot -center ~/.wallpaper.jpg
+exec --no-startup-id xsetroot -solid "#333333"
 exec --no-startup-id xsettingsd &
 
 # start a terminal
 bindsym $alt+Return exec alacritty
 
-# start dmenu (a program launcher)
+# start dmenu
 bindsym $alt+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
 bindsym $alt+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'
 
@@ -88,10 +88,8 @@ bindsym $alt+Shift+7 move container to workspace 7
 bindsym $alt+Shift+8 move container to workspace 8
 bindsym $alt+Shift+9 move container to workspace 9
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $alt+Shift+r restart
-
 # exit i3
+bindsym $alt+Shift+r restart
 bindsym $alt+Shift+e exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
@@ -120,7 +118,6 @@ bar {
         status_command i3status
 }
 
-# colour of border, background, text, indicator, and child_border
 client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
 client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
