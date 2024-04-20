@@ -14,16 +14,10 @@
 
   home.file.".config/i3/config" = {
     source = ./dotfiles/i3/config;
-    onChange = ''
-      ${pkgs.i3}/bin/i3-msg reload
-    '';
   };
 
   home.file.".config/i3status/config" = {
     source = ./dotfiles/i3status/config;
-    onChange = ''
-      ${pkgs.i3status}/bin/i3status -c ${./dotfiles/i3status/config}
-    '';
   };
 
   programs = {
