@@ -41,7 +41,7 @@
     LC_CTYPE = "en_US.utf8";
   };
 
-  servives = {
+  services = {
     printing.enable = true;
     openssh.enable = true;
     gnome.gnome-keyring.enable = true;
