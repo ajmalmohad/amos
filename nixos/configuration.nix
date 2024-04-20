@@ -96,7 +96,6 @@
     alejandra
     openssl
 
-    picom
     dmenu
     rofi
     feh
