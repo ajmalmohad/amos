@@ -44,7 +44,6 @@
   services = {
     printing.enable = true;
     openssh.enable = true;
-    gnome.gnome-keyring.enable = true;
   };
 
   services.xserver = {
@@ -96,7 +95,7 @@
     neofetch
     alejandra
     openssl
-    gnome.gnome-keyring
+
     picom
     dmenu
     rofi
