@@ -20,6 +20,8 @@
     configurationLimit = 5;
   };
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
   networking = {
     hostName = "ajmalmohad";
     networkmanager.enable = true;
