@@ -20,7 +20,7 @@
     configurationLimit = 5;
   };
 
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
 
   networking = {
     hostName = "ajmalmohad";
@@ -97,6 +97,7 @@
     neofetch
     alejandra
     openssl
+    pavucontrol
 
     dmenu
     rofi
