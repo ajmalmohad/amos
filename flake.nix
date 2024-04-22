@@ -23,7 +23,7 @@
         specialArgs = {inherit inputs;};
         inherit system;
         modules = [
-          ./nixos/configuration.nix
+          ./hosts/desktop/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
