@@ -7,16 +7,16 @@
   home.username = "ajmalmohad";
   home.homeDirectory = "/home/ajmalmohad";
   home.packages = with pkgs; [
-    nodePackages.eas-cli
-    (import ./scripts/tmuxus.nix {inherit pkgs;})
+    nodePackages_latest.eas-cli
+    (import ../scripts/tmuxus.nix {inherit pkgs;})
   ];
 
   home.file = {
     ".config/i3/config" = {
-      source = ./dotfiles/i3/config;
+      source = ../dotfiles/i3/config;
     };
     ".config/i3status/config" = {
-      source = ./dotfiles/i3status/config;
+      source = ../dotfiles/i3status/config;
     };
   };
 
