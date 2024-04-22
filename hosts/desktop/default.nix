@@ -4,7 +4,7 @@
   inputs,
   ...
 }: {
-  imports = [./hardware-configuration.nix];
+  imports = [./hardware.nix];
 
   nix = {
     settings.auto-optimise-store = true;

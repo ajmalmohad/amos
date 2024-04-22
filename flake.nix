@@ -23,12 +23,12 @@
         specialArgs = {inherit inputs;};
         inherit system;
         modules = [
-          ./hosts/desktop/configuration.nix
+          ./hosts/desktop
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.ajmalmohad = import ./home-manager/home.nix;
+            home-manager.users.ajmalmohad = import ./home;
           }
         ];
       };
