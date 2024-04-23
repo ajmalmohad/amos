@@ -119,6 +119,8 @@
     rustup
     gcc
     go
+
+    obsidian
   ];
 
   nix = {
