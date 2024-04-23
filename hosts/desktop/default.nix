@@ -115,6 +115,10 @@
     typescript
     nodePackages.ts-node
     nodePackages_latest.pnpm
+
+    rustup
+    gcc
+    go
   ];
 
   nix = {
