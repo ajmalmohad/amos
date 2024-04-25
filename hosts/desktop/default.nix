@@ -127,6 +127,9 @@
     "electron-25.9.0"
   ];
 
+  services.gnome3.gnome-keyring.enable = true;
+  security.pam.services.sddm.enableGnomeKeyring = true;
+
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
