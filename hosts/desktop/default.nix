@@ -127,7 +127,7 @@
     "electron-25.9.0"
   ];
 
-  services.gnome3.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
 
   nix = {
