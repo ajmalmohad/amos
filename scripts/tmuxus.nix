@@ -1,5 +1,7 @@
 {pkgs}:
 pkgs.writeShellScriptBin "tmuxus" ''
+  tmux start-server
+
   if [[ $# -eq 1 ]]; then
       selected=$1
   else
