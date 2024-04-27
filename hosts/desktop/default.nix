@@ -98,6 +98,7 @@
     alejandra
     openssl
     pavucontrol
+		lsof
 
     dmenu
     rofi
