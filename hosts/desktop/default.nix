@@ -120,6 +120,7 @@
     rustup
     gcc
     go
+		gnumake
 
     obsidian
   ];
